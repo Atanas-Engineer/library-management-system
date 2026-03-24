@@ -32,13 +32,18 @@ public class ConsoleUi {
         this.storage = storage;
     }
 
-    private boolean guestMenu() {
+    private void printGuestMenu() {
         System.out.println();
         System.out.println("====== LIBRARY MENU ======");
         System.out.println("1 Login Employee");
         System.out.println("2 Save Library");
         System.out.println("3 Load library");
         System.out.println("0 Exit");
+    }
+
+    private boolean guestMenu() {
+
+        printGuestMenu();
 
         int choice = inputReader.readInt();
 
@@ -68,7 +73,7 @@ public class ConsoleUi {
         }
     }
 
-    private void adminMenu() {
+    private void printAdminMenu() {
         System.out.println();
         System.out.println("====== ADMIN MENU ======");
         System.out.println("1 Register employee");
@@ -86,6 +91,11 @@ public class ConsoleUi {
         System.out.println("10 Delete member");
 
         System.out.println("\n11 Logout");
+    }
+
+    private void adminMenu() {
+
+        printAdminMenu();
 
         int choice = inputReader.readInt();
 
@@ -112,7 +122,7 @@ public class ConsoleUi {
 
             case 6:
                 deleteBook();
-                return;
+                break;
 
             case 7:
                 listEmployees();
@@ -139,7 +149,7 @@ public class ConsoleUi {
         }
     }
 
-    private void employeeMenu() {
+    private void printEmployeeMenu() {
         System.out.println();
         System.out.println("====== EMPLOYEE MENU ======");
         System.out.println("1 Register member");
@@ -158,6 +168,11 @@ public class ConsoleUi {
         System.out.println("11 Search member by name");
 
         System.out.println("\n12 Logout");
+    }
+
+    private void employeeMenu() {
+
+        printEmployeeMenu();
 
         int choice = inputReader.readInt();
 
@@ -195,7 +210,7 @@ public class ConsoleUi {
                 break;
 
             case 9:
-                searchBooksByTile();
+                searchBooksByTitle();
                 break;
 
             case 10:
@@ -398,7 +413,7 @@ public class ConsoleUi {
     memberService.printBorrowedBooksById(inputReader.readId(false));
     }
 
-    private void searchBooksByTile() {
+    private void searchBooksByTitle() {
         bookService.searchBooksByTitle(inputReader.readSearchText("Enter book title:"));
     }
 
